@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "lambda_one" {
-  function_name = ${var.config.lambda_one_name}
+  function_name = var.config.lambda_one_name
   handler       = "index.handler"
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_role.arn
@@ -26,7 +26,7 @@ resource "aws_lambda_function" "lambda_one" {
 }
 
 resource "aws_lambda_function" "lambda_two" {
-  function_name = ${var.config.lambda_two_name}
+  function_name = var.config.lambda_two_name
   handler       = "index.handler"
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_role.arn
