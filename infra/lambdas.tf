@@ -3,8 +3,13 @@ resource "aws_lambda_function" "lambda_one" {
   handler       = "index.handler"
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_role.arn
-  s3_bucket     = var.bucket_code_name
+  s3_bucket     = var.config.bucket_code_name
   s3_key        = "lambda-one.zip"
+
+  vpc_config {
+    subnet_ids         = [var.config.public_sub_1a, var.config.public_sub_1b, var.config.public_sub_1c]
+    security_group_ids = [module.sg_upfunnels_lambdas.id]
+  }
 
   environment {
     variables = {
@@ -18,8 +23,13 @@ resource "aws_lambda_function" "lambda_two" {
   handler       = "index.handler"
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_role.arn
-  s3_bucket     = var.bucket_code_name
+  s3_bucket     = var.config.bucket_code_name
   s3_key        = "lambda-two.zip"
+
+  vpc_config {
+    subnet_ids         = [var.config.public_sub_1a, var.config.public_sub_1b, var.config.public_sub_1c]
+    security_group_ids = [module.sg_upfunnels_lambdas.id]
+  }
 
   environment {
     variables = {
