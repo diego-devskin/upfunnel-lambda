@@ -1,6 +1,6 @@
 variable "bucket_code_name" {
     type    = string
-    default = "lambda-code-upfunnels"
+    default = "lambda-upfunnels-code"
 }
 
 variable "env" {
