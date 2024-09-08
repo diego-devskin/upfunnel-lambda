@@ -8,7 +8,7 @@ resource "aws_lambda_function" "lambda_one" {
 
   vpc_config {
     subnet_ids         = [var.config.public_sub_1a, var.config.public_sub_1b, var.config.public_sub_1c]
-    security_group_ids = [module.sg_upfunnels_lambdas.id]
+    security_group_ids = [module.sg_upfunnels_backend.security_group_id]
   }
 
   environment {
@@ -28,7 +28,7 @@ resource "aws_lambda_function" "lambda_two" {
 
   vpc_config {
     subnet_ids         = [var.config.public_sub_1a, var.config.public_sub_1b, var.config.public_sub_1c]
-    security_group_ids = [module.sg_upfunnels_lambdas.id]
+    security_group_ids = [module.sg_upfunnels_backend.security_group_id]
   }
 
   environment {
