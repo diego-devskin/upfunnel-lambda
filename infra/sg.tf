@@ -1,7 +1,7 @@
 module "sg_upfunnels_lambdas" {
   source = "terraform-aws-modules/security-group/aws"
 
-  name        = "sg-upfunnels-lambdas"
+  name        = "upfunnels-lambdas-sg"
   description = "Security group for upfunnels lambdas with custom ports open within VPC"
   vpc_id      = var.config.vpc_id
 
