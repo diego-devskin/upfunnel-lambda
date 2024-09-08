@@ -18,12 +18,6 @@ jobs:
       - name: Install zip
         run: sudo apt-get install -y zip
 
-      # Zip o código da Lambda
-      - name: Zip Lambda Code
-        run: |
-          cd path/to/lambda/code
-          zip -r ../lambda-code.zip .
-
       # Configurar AWS CLI
       - name: Configure AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
@@ -39,7 +33,7 @@ jobs:
             if [ -d "$dir" ]; then
               lambda_name=$(basename "$dir")
               zip -r "$lambda_name.zip" "$dir"
-              aws s3 cp "$lambda_name.zip" s3://my-lambda-deployment-bucket/"$lambda_name".zip
+              aws s3 cp "$lambda_name.zip" s3://lambda-code/"$lambda_name".zip
             fi
           done
 
