@@ -34,8 +34,8 @@ jobs:
           for dir in */; do
             if [ -d "$dir" ]; then
               lambda_name=$(basename "$dir")
-              zip -r "${lambda_name}.zip" "$dir" -x "*.git*"  # Exclui arquivos e diretórios Git
-              aws s3 cp "${lambda_name}.zip" s3://${BUCKET_NAME}/${lambda_name}.zip
+              (cd "$dir" && zip -r "../${lambda_name}.zip" . -x "*.git*")
+              aws s3 cp "${lambda_name}.zip" s3://${BUCKET_NAME}/${lambda_name}.zip              
             fi
           done
 
