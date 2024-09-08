@@ -70,7 +70,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          cd infra; WORKSPACE=develop make plan
+          cd infra; WORKSPACE=production make plan
 
       - name: Terraform Apply
         env:
