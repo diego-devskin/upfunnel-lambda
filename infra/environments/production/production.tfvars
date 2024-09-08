@@ -12,4 +12,7 @@ config = {
   environment         = "production"       
   projectName         = "lambdas"
   bucket_code_name    = "lambda-upfunnels-code"
+
+  lambda_one_name     = "lambda-one"
+  lambda_two_name     = "lambda-two"
 }
