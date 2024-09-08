@@ -4,7 +4,7 @@ resource "aws_lambda_function" "lambda_one" {
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_role.arn
   s3_bucket     = var.bucket_code_name
-  s3_key        = "${var.bucket_code_name}/lambda-one.zip"
+  s3_key        = "lambda-one.zip"
 
   environment {
     variables = {
@@ -19,7 +19,7 @@ resource "aws_lambda_function" "lambda_two" {
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_role.arn
   s3_bucket     = var.bucket_code_name
-  s3_key        = "${var.bucket_code_name}/lambda-two.zip"
+  s3_key        = "lambda-two.zip"
 
   environment {
     variables = {
