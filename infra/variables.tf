@@ -11,5 +11,8 @@ variable "config" {
     environment      = string
     projectName      = string
     bucket_code_name = string
+
+    lambda_one_name = string
+    lambda_two_name = string
   })
 }
