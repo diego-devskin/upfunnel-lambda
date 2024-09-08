@@ -18,6 +18,10 @@ resource "aws_lambda_function" "lambda_one" {
       EXAMPLE_ENV_VAR = "value"
     }
   }
+
+  tags = {
+    Version = "${timestamp()}"
+  }
 }
 
 resource "aws_lambda_function" "lambda_two" {
@@ -39,6 +43,10 @@ resource "aws_lambda_function" "lambda_two" {
     variables = {
       EXAMPLE_ENV_VAR = "value"
     }
+  }
+
+  tags = {
+    Version = "${timestamp()}"
   }
 }
 
