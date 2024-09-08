@@ -6,7 +6,7 @@ resource "aws_lambda_function" "lambda_one" {
   s3_bucket     = var.config.bucket_code_name
   s3_key        = "lambda-one.zip"
 
-  source_code_hash = data.archive_file.lambda.output_base64sha256
+  source_code_hash = data.archive_file.lambda_one.output_base64sha256
 
   vpc_config {
     subnet_ids         = [var.config.public_sub_1a, var.config.public_sub_1b, var.config.public_sub_1c]
@@ -32,7 +32,7 @@ resource "aws_lambda_function" "lambda_two" {
   s3_bucket     = var.config.bucket_code_name
   s3_key        = "lambda-two.zip"
 
-  source_code_hash = data.archive_file.lambda.output_base64sha256
+  source_code_hash = data.archive_file.lambda_two.output_base64sha256
 
   vpc_config {
     subnet_ids         = [var.config.public_sub_1a, var.config.public_sub_1b, var.config.public_sub_1c]
