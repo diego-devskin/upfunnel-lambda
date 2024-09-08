@@ -3,8 +3,8 @@ resource "aws_lambda_function" "lambda_one" {
   handler       = "index.handler"
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_role.arn
-  s3_bucket     = var.config.bucket_code_name
-  s3_key        = "lambda-one.zip"
+  #s3_bucket     = var.config.bucket_code_name
+  #s3_key        = "lambda-one.zip"
 
   source_code_hash = data.archive_file.lambda_one.output_base64sha256
 
@@ -29,8 +29,8 @@ resource "aws_lambda_function" "lambda_two" {
   handler       = "index.handler"
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_role.arn
-  s3_bucket     = var.config.bucket_code_name
-  s3_key        = "lambda-two.zip"
+  #s3_bucket     = var.config.bucket_code_name
+  #s3_key        = "lambda-two.zip"
 
   source_code_hash = data.archive_file.lambda_two.output_base64sha256
 
