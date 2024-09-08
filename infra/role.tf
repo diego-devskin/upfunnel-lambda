@@ -24,6 +24,12 @@ resource "aws_iam_policy_attachment" "lambda_policy_attach" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+resource "aws_iam_policy_attachment" "lambda_network_policy" {
+  name       = "lambda-network-policy"
+  roles      = [aws_iam_role.lambda_role.name]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+}
+
 
 resource "aws_iam_role" "sfn_role" {
   name = "sfn-execution-role"
