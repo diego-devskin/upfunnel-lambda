@@ -33,7 +33,7 @@ jobs:
             if [ -d "$dir" ]; then
               lambda_name=$(basename "$dir")
               zip -r "$lambda_name.zip" "$dir"
-              aws s3 cp "$lambda_name.zip" s3://lambda-code/"$lambda_name".zip
+              aws s3 cp "$lambda_name.zip" s3://lambda-upfunnels-code/"$lambda_name".zip
             fi
           done
 
