@@ -11,7 +11,6 @@ resource "aws_lambda_function" "lambda_one" {
       EXAMPLE_ENV_VAR = "value"
     }
   }
-
 }
 
 resource "aws_lambda_function" "lambda_two" {
