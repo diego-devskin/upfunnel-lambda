@@ -30,15 +30,11 @@ jobs:
       - name: Zip and Upload Lambda Functions Dynamically
         run: |
           BUCKET_NAME="lambda-upfunnels-code"
-
-          for dir in code/*; do
+          cd code;
+          for dir in */; do
             if [ -d "$dir" ]; then
               lambda_name=$(basename "$dir")
-
-              # Cria o arquivo zip com o código da Lambda
-              zip -r "${lambda_name}.zip" "$dir" -x "*.git*"  # Exclui arquivos desnecessários, se houver
-
-              # Faz o upload do arquivo zip para o bucket S3
+              zip -r "${lambda_name}.zip" "$dir" -x "*.git*"  # Exclui arquivos e diretórios Git
               aws s3 cp "${lambda_name}.zip" s3://${BUCKET_NAME}/${lambda_name}.zip
             fi
           done
